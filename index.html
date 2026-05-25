@@ -138,8 +138,8 @@
 
     .nav-cta {
       padding: 10px 18px;
-      background: var(--color-white);
-      color: var(--color-ink);
+      background: var(--color-ink);
+      color: var(--color-white);
       border-radius: 999px;
       font-size: 13px;
       font-weight: 600;
@@ -147,8 +147,8 @@
     }
 
     .nav-cta:hover {
-      background: var(--color-ink);
-      color: var(--color-white);
+      background: var(--color-white);
+      color: var(--color-ink);
       transform: translateY(-1px);
     }
 
@@ -530,154 +530,190 @@
       color: var(--color-ink-soft);
     }
 
-    /* Feature Visual — Decorative composition */
+    /* Feature Visual — Real screenshot containers */
     .feature-card-visual {
       position: relative;
       aspect-ratio: 4 / 3;
-      background: var(--color-white);
       border-radius: 24px;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow:
-        0 1px 0 rgba(26, 26, 26, 0.04),
-        0 24px 48px -16px rgba(26, 26, 26, 0.12);
       isolation: isolate;
     }
 
-    /* Card variant 1: Gallery scan */
+    /* ========================================
+       Card variant 1: Gallery / Wardrobe screenshot
+       ======================================== */
     .feature-visual--gallery {
-      background: linear-gradient(135deg, #FEF5E7 0%, #FFFFFF 100%);
+      background: linear-gradient(135deg, #FEF5E7 0%, #FAF7F2 100%);
+      box-shadow:
+        0 1px 0 rgba(26, 26, 26, 0.04),
+        0 24px 48px -16px rgba(26, 26, 26, 0.12);
     }
 
+    /* Subtle grid texture */
     .feature-visual--gallery::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(245, 136, 10, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245, 136, 10, 0.08) 1px, transparent 1px);
+        linear-gradient(rgba(245, 136, 10, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245, 136, 10, 0.06) 1px, transparent 1px);
       background-size: 40px 40px;
+      pointer-events: none;
     }
 
-    .gallery-grid {
+    /* Phone-shaped frame holding the screenshot */
+    .screenshot-frame {
       position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      padding: 32px;
+      height: 90%;
+      aspect-ratio: 9 / 19.5;
+      background: var(--color-ink);
+      border-radius: 28px;
+      padding: 6px;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.08) inset,
+        0 30px 60px -20px rgba(26, 26, 26, 0.35),
+        0 12px 24px -8px rgba(26, 26, 26, 0.2);
+      transform: rotate(-4deg);
+      transition: transform 0.6s var(--ease-out-quart);
+      animation: screenshotFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes screenshotFloat {
+      0%, 100% { transform: rotate(-4deg) translateY(0); }
+      50% { transform: rotate(-3deg) translateY(-6px); }
+    }
+
+    .screenshot-frame img {
       width: 100%;
-      max-width: 380px;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 22px;
+      display: block;
     }
 
-    .gallery-tile {
-      aspect-ratio: 1;
-      background: var(--color-white);
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(26, 26, 26, 0.08);
-      position: relative;
+    /* Scan line overlay — Amber glow sweeping the screenshot */
+    .scan-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: 22px;
       overflow: hidden;
     }
 
-    .gallery-tile::before {
-      content: "";
+    .scan-line {
       position: absolute;
-      inset: 14%;
-      border-radius: 6px;
-      background: linear-gradient(135deg, rgba(245, 136, 10, 0.15), rgba(245, 136, 10, 0.05));
+      left: -10%;
+      right: -10%;
+      height: 60px;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(245, 136, 10, 0.15) 40%,
+        rgba(245, 136, 10, 0.45) 50%,
+        rgba(245, 136, 10, 0.15) 60%,
+        transparent 100%
+      );
+      box-shadow: 0 0 32px rgba(245, 136, 10, 0.6);
+      top: -60px;
+      animation: scan 4s ease-in-out infinite;
     }
 
-    .gallery-tile:nth-child(1)::before { background: linear-gradient(135deg, #F5880A, #FEF5E7); }
-    .gallery-tile:nth-child(2)::before { background: linear-gradient(135deg, #1A1A1A, #4A4A4A); }
-    .gallery-tile:nth-child(3)::before { background: linear-gradient(135deg, #B84D00, #F5880A); }
-    .gallery-tile:nth-child(4)::before { background: linear-gradient(135deg, #4A4A4A, #1A1A1A); }
-    .gallery-tile:nth-child(5)::before { background: linear-gradient(135deg, #FEF5E7, #F5880A); }
-    .gallery-tile:nth-child(6)::before { background: linear-gradient(135deg, #1A1A1A, #B84D00); }
-    .gallery-tile:nth-child(7)::before { background: linear-gradient(135deg, #F5880A, #B84D00); }
-    .gallery-tile:nth-child(8)::before { background: linear-gradient(135deg, #FEF5E7, #1A1A1A); }
-    .gallery-tile:nth-child(9)::before { background: linear-gradient(135deg, #B84D00, #1A1A1A); }
-
-    .gallery-scan-line {
+    .scan-line::after {
+      content: "";
       position: absolute;
       left: 0;
       right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--color-amber), transparent);
-      box-shadow: 0 0 12px var(--color-amber);
-      top: 0;
-      animation: scan 3.5s ease-in-out infinite;
+      bottom: 50%;
+      height: 1.5px;
+      background: var(--color-amber);
+      box-shadow: 0 0 16px var(--color-amber), 0 0 4px var(--color-amber);
     }
 
     @keyframes scan {
-      0%, 100% { top: 0; opacity: 0; }
+      0% { top: -60px; opacity: 0; }
       10% { opacity: 1; }
       90% { opacity: 1; }
-      50% { top: 100%; }
+      100% { top: 100%; opacity: 0; }
     }
 
-    /* Card variant 2: Image regeneration */
+    /* ========================================
+       Card variant 2: Before / After comparison
+       ======================================== */
     .feature-visual--regen {
       background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
-      color: var(--color-white);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.08) inset,
+        0 24px 48px -16px rgba(26, 26, 26, 0.32);
+    }
+
+    /* Subtle dot pattern */
+    .feature-visual--regen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+      pointer-events: none;
     }
 
     .regen-compare {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
-      gap: 24px;
-      padding: 32px;
+      gap: 20px;
+      padding: 24px;
       width: 100%;
-      max-width: 420px;
+      max-width: 480px;
     }
 
     .regen-tile {
       flex: 1;
       aspect-ratio: 3 / 4;
-      border-radius: 14px;
+      border-radius: 16px;
       position: relative;
       overflow: hidden;
+      background: #0F0F0F;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
     }
 
-    .regen-tile-before {
-      background:
-        linear-gradient(135deg, rgba(74, 74, 74, 0.8), rgba(40, 40, 40, 0.9)),
-        repeating-linear-gradient(45deg, transparent 0, transparent 6px, rgba(255,255,255,0.04) 6px, rgba(255,255,255,0.04) 7px);
-      filter: blur(0.5px);
+    .regen-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
-    .regen-tile-before::after {
-      content: "";
-      position: absolute;
-      inset: 22% 28%;
-      background: linear-gradient(180deg, rgba(245, 136, 10, 0.35), rgba(184, 77, 0, 0.25));
-      border-radius: 8px;
-      filter: blur(2px);
+    .regen-tile-before img {
+      opacity: 0.85;
+      filter: brightness(0.92);
     }
 
     .regen-tile-after {
-      background: linear-gradient(135deg, #FAF7F2 0%, #FEF5E7 100%);
-    }
-
-    .regen-tile-after::after {
-      content: "";
-      position: absolute;
-      inset: 18% 25%;
-      background: linear-gradient(180deg, #F5880A, #B84D00);
-      border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(184, 77, 0, 0.3);
+      box-shadow:
+        0 0 0 1.5px rgba(245, 136, 10, 0.45),
+        0 16px 40px rgba(245, 136, 10, 0.18),
+        0 12px 32px rgba(0, 0, 0, 0.35);
     }
 
     .regen-arrow {
       color: var(--color-amber);
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 300;
       animation: arrowPulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+      text-shadow: 0 0 12px rgba(245, 136, 10, 0.5);
     }
 
     @keyframes arrowPulse {
-      0%, 100% { transform: translateX(0); opacity: 0.7; }
-      50% { transform: translateX(4px); opacity: 1; }
+      0%, 100% { transform: translateX(0); opacity: 0.75; }
+      50% { transform: translateX(5px); opacity: 1; }
     }
 
     .regen-label {
@@ -685,29 +721,55 @@
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
+      padding: 4px 10px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 999px;
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.95);
+      z-index: 2;
     }
 
     .regen-tile-after .regen-label {
-      color: var(--color-amber-dark);
+      background: rgba(245, 136, 10, 0.95);
+      color: var(--color-ink);
     }
 
-    /* Card variant 3: Daily recommendation */
+    /* ========================================
+       Card variant 3: Daily recommendation
+       ======================================== */
     .feature-visual--daily {
       background: linear-gradient(135deg, #F5880A 0%, #B84D00 100%);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.18) inset,
+        0 24px 48px -16px rgba(184, 77, 0, 0.4);
     }
 
-    .daily-card {
+    /* Subtle radial highlight */
+    .feature-visual--daily::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.18), transparent 60%);
+      pointer-events: none;
+    }
+
+    .daily-frame {
       position: relative;
-      width: 260px;
-      padding: 24px;
-      background: var(--color-white);
-      border-radius: 20px;
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+      z-index: 2;
+      height: 88%;
+      aspect-ratio: 9 / 19.5;
+      background: var(--color-ink);
+      border-radius: 28px;
+      padding: 6px;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.1) inset,
+        0 30px 60px -16px rgba(0, 0, 0, 0.45),
+        0 16px 32px -8px rgba(0, 0, 0, 0.3);
       transform: rotate(-3deg);
       animation: dailyFloat 5s ease-in-out infinite;
     }
@@ -717,62 +779,37 @@
       50% { transform: rotate(-2deg) translateY(-8px); }
     }
 
-    .daily-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
+    .daily-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 22px;
+      display: block;
     }
 
-    .daily-date {
-      font-family: var(--font-serif);
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--color-ink);
-    }
-
-    .daily-weather {
-      font-size: 12px;
-      color: var(--color-ink-soft);
-      font-weight: 500;
-    }
-
-    .daily-outfit {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .daily-item {
-      aspect-ratio: 1;
-      border-radius: 10px;
-      background: var(--color-bg-warm, #FAF7F2);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .daily-item::after {
-      content: "";
+    /* Floating "오늘의 추천" badge */
+    .daily-badge {
       position: absolute;
-      inset: 18%;
-      border-radius: 6px;
-    }
-
-    .daily-item:nth-child(1)::after { background: linear-gradient(135deg, #1A1A1A, #4A4A4A); }
-    .daily-item:nth-child(2)::after { background: linear-gradient(135deg, #B84D00, #F5880A); }
-    .daily-item:nth-child(3)::after { background: linear-gradient(135deg, #4A4A4A, #1A1A1A); }
-    .daily-item:nth-child(4)::after { background: linear-gradient(135deg, #FEF5E7, #B84D00); }
-
-    .daily-footer {
+      bottom: 20px;
+      right: 20px;
+      z-index: 3;
       display: flex;
       align-items: center;
       gap: 8px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(26, 26, 26, 0.08);
+      padding: 10px 16px;
+      background: var(--color-white);
+      border-radius: 999px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+      animation: badgeFloat 4s ease-in-out infinite 1s;
     }
 
-    .daily-footer-dot {
+    @keyframes badgeFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .daily-badge-dot {
       width: 8px;
       height: 8px;
       background: var(--color-amber);
@@ -780,10 +817,11 @@
       animation: pulse 2s ease-in-out infinite;
     }
 
-    .daily-footer-text {
+    .daily-badge-text {
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-ink);
+      letter-spacing: -0.01em;
     }
 
     /* ========================================
@@ -2430,17 +2468,11 @@
           </p>
         </div>
         <div class="feature-card-visual feature-visual--gallery">
-          <div class="gallery-grid">
-            <div class="gallery-tile"></div>
-            <div class="gallery-tile"></div>
-            <div class="gallery-tile"></div>
-            <div class="gallery-tile"></div>
-            <div class="gallery-tile"></div>
-            <div class="gallery-tile"></div>
-            <div class="gallery-tile"></div>
-            <div class="gallery-tile"></div>
-            <div class="gallery-tile"></div>
-            <div class="gallery-scan-line"></div>
+          <div class="screenshot-frame">
+            <img src="./assets/feature01.png" alt="Goo 옷장 디지털화 화면" />
+            <div class="scan-overlay">
+              <div class="scan-line"></div>
+            </div>
           </div>
         </div>
       </article>
@@ -2458,10 +2490,12 @@
         <div class="feature-card-visual feature-visual--regen">
           <div class="regen-compare">
             <div class="regen-tile regen-tile-before">
+              <img src="./assets/feature02_before.png" alt="대충 촬영한 옷 사진" />
               <span class="regen-label">Before</span>
             </div>
             <div class="regen-arrow">→</div>
             <div class="regen-tile regen-tile-after">
+              <img src="./assets/feature02_after.png" alt="Goo가 재생성한 제품 이미지" />
               <span class="regen-label">After</span>
             </div>
           </div>
@@ -2479,21 +2513,12 @@
           </p>
         </div>
         <div class="feature-card-visual feature-visual--daily">
-          <div class="daily-card">
-            <div class="daily-card-header">
-              <span class="daily-date">Today</span>
-              <span class="daily-weather">18° · 맑음</span>
-            </div>
-            <div class="daily-outfit">
-              <div class="daily-item"></div>
-              <div class="daily-item"></div>
-              <div class="daily-item"></div>
-              <div class="daily-item"></div>
-            </div>
-            <div class="daily-footer">
-              <span class="daily-footer-dot"></span>
-              <span class="daily-footer-text">오늘의 추천</span>
-            </div>
+          <div class="daily-frame">
+            <img src="./assets/feature03.png" alt="Goo 매일 추천 가상 시착 결과" />
+          </div>
+          <div class="daily-badge">
+            <span class="daily-badge-dot"></span>
+            <span class="daily-badge-text">오늘의 추천</span>
           </div>
         </div>
       </article>
