@@ -2957,6 +2957,16 @@
     </div>
   </footer>
 
+  <!-- TestFlight Coming Soon Modal -->
+  <div id="tf-modal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);">
+    <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:36px 32px;max-width:320px;width:90%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.5);">
+      <div style="font-size:40px;margin-bottom:16px;">🚧</div>
+      <p style="color:#fff;font-size:17px;font-weight:600;line-height:1.6;margin:0 0 8px;">Goo 개발 진척율 70%</p>
+      <p style="color:#aaa;font-size:15px;margin:0 0 28px;">조금만 더 기다려주세요^^</p>
+      <button onclick="document.getElementById('tf-modal').style.display='none'" style="background:#E8824A;color:#fff;border:none;border-radius:50px;padding:12px 32px;font-size:15px;font-weight:600;cursor:pointer;width:100%;">확인</button>
+    </div>
+  </div>
+
   <!-- Scroll Reveal Script -->
   <script>
     const observer = new IntersectionObserver((entries) => {
@@ -2969,6 +2979,19 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
 
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('a[href*="testflight.apple.com"]').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('tf-modal').style.display = 'flex';
+      });
+    });
+
+    document.getElementById('tf-modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('tf-modal')) {
+        document.getElementById('tf-modal').style.display = 'none';
+      }
+    });
   </script>
 
 </body>
