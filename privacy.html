@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>개인정보 처리방침 — Goo</title>
+  <meta name="description" content="Goo(CHICPLAY Inc.) 개인정보 처리방침" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.chicplay.net/privacy.html" />
+  <link rel="icon" type="image/png" href="./assets/goo_icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --color-amber: #F5880A;
+      --color-amber-dark: #B84D00;
+      --color-amber-light: #FEF5E7;
+      --color-ink: #1A1A1A;
+      --color-ink-soft: #4A4A4A;
+      --color-bg: #F5F5F3;
+      --color-surface: #FFFFFF;
+      --color-line: rgba(26, 26, 26, 0.10);
+      --font-serif: 'Fraunces', 'Pretendard', serif;
+      --font-sans: 'Pretendard', system-ui, -apple-system, sans-serif;
+      --max-width: 820px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.7;
+    }
+
+    /* Top bar */
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--color-amber);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+    .topbar-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .topbar-logo {
+      display: flex; align-items: center; gap: 9px;
+      text-decoration: none; color: #fff;
+    }
+    .topbar-logo img { width: 26px; height: 26px; border-radius: 7px; }
+    .topbar-logo span { font-family: var(--font-serif); font-weight: 600; font-size: 19px; }
+    .topbar-back {
+      color: #fff; text-decoration: none; font-size: 14px; font-weight: 500;
+      opacity: 0.9; display: inline-flex; align-items: center; gap: 6px;
+      transition: opacity 0.2s ease;
+    }
+    .topbar-back:hover { opacity: 1; }
+
+    /* Page header */
+    .page-head {
+      max-width: var(--max-width); margin: 0 auto;
+      padding: 64px 24px 36px;
+    }
+    .page-eyebrow {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--color-amber-dark);
+      margin-bottom: 14px;
+    }
+    .page-title {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(32px, 6vw, 46px); line-height: 1.1;
+      letter-spacing: -0.01em; margin-bottom: 18px;
+    }
+    .page-meta {
+      font-size: 14px; color: var(--color-ink-soft);
+      padding-top: 18px; border-top: 1px solid var(--color-line);
+    }
+    .page-meta strong { color: var(--color-ink); font-weight: 600; }
+
+    /* Content surface */
+    .content {
+      max-width: var(--max-width); margin: 0 auto 80px;
+      padding: 40px clamp(24px, 5vw, 48px);
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
+      border-radius: 20px;
+    }
+    .intro {
+      font-size: 15.5px; color: var(--color-ink-soft);
+      padding-bottom: 28px; margin-bottom: 12px;
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    section.article { padding: 28px 0; border-bottom: 1px solid var(--color-line); }
+    section.article:last-child { border-bottom: none; }
+    .article-h {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: 21px; line-height: 1.35; margin-bottom: 14px;
+      display: flex; align-items: baseline; gap: 12px;
+    }
+    .article-h .num {
+      font-size: 14px; font-weight: 600; color: var(--color-amber);
+      font-family: var(--font-sans); flex-shrink: 0;
+    }
+    .article p { font-size: 15px; color: var(--color-ink-soft); margin-bottom: 12px; }
+    .article p:last-child { margin-bottom: 0; }
+    .article strong { color: var(--color-ink); font-weight: 600; }
+
+    ul.list { list-style: none; margin: 8px 0 12px; }
+    ul.list li {
+      position: relative; padding-left: 18px; margin-bottom: 9px;
+      font-size: 15px; color: var(--color-ink-soft);
+    }
+    ul.list li::before {
+      content: ''; position: absolute; left: 2px; top: 11px;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--color-amber);
+    }
+    ul.list li strong { color: var(--color-ink); }
+
+    /* Processor table */
+    .table-wrap { overflow-x: auto; margin: 8px 0 4px; }
+    table.proc {
+      width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px;
+    }
+    table.proc th, table.proc td {
+      text-align: left; padding: 12px 14px; vertical-align: top;
+      border-bottom: 1px solid var(--color-line);
+    }
+    table.proc thead th {
+      background: var(--color-amber-light); color: var(--color-ink);
+      font-weight: 600; font-size: 13px;
+    }
+    table.proc td { color: var(--color-ink-soft); }
+    table.proc td strong { color: var(--color-ink); }
+
+    .callout {
+      background: var(--color-amber-light);
+      border: 1px solid rgba(245, 136, 10, 0.25);
+      border-radius: 12px; padding: 16px 18px; margin: 6px 0 4px;
+      font-size: 14.5px; color: var(--color-ink-soft);
+    }
+    .callout strong { color: var(--color-amber-dark); }
+
+    a.inline { color: var(--color-amber-dark); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* Footer */
+    .pfoot {
+      max-width: var(--max-width); margin: 0 auto;
+      padding: 0 24px 56px; text-align: center;
+      font-size: 13px; color: var(--color-ink-soft);
+    }
+    .pfoot a { color: var(--color-amber-dark); text-decoration: none; }
+    .pfoot a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="./index.html" class="topbar-logo">
+        <img src="./assets/goo_icon.png" alt="Goo" />
+        <span>Goo</span>
+      </a>
+      <a href="./index.html" class="topbar-back">← 홈으로</a>
+    </div>
+  </div>
+
+  <div class="page-head">
+    <p class="page-eyebrow">Privacy Policy</p>
+    <h1 class="page-title">개인정보 처리방침</h1>
+    <p class="page-meta">
+      CHICPLAY Inc.(이하 "회사")는 「개인정보 보호법」을 준수하며, Goo 서비스 이용자의 개인정보를 보호하기 위해 다음과 같은 처리방침을 둡니다.<br />
+      <strong>시행일: 2026년 6월 2일</strong>
+    </p>
+  </div>
+
+  <main class="content">
+    <p class="intro">
+      본 방침은 회사가 제공하는 모바일 애플리케이션 <strong>Goo</strong> 및 관련 서비스에 적용됩니다.
+      회사는 이용자가 안심하고 서비스를 이용할 수 있도록, 수집하는 개인정보의 항목·목적·보유기간 및 이용자의 권리를 투명하게 안내합니다.
+    </p>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">01</span>수집하는 개인정보 항목</h2>
+      <p>회사는 서비스 제공을 위해 다음의 개인정보를 수집합니다.</p>
+      <ul class="list">
+        <li><strong>계정 및 인증 정보</strong> — Apple로 로그인 시 제공되는 이메일 주소, 이름(최초 1회), Apple 사용자 식별자</li>
+        <li><strong>프로필 정보</strong> — 닉네임, 프로필 이미지(얼굴 사진), 키·몸무게·성별(선택 입력), 국가 및 시간대</li>
+        <li><strong>의류 및 콘텐츠 정보</strong> — 이용자가 업로드한 의류 사진 및 AI가 생성한 이미지, 의류 속성 정보(카테고리·색상·소재·패턴 등), 코디(아웃핏) 구성 및 착장 기록</li>
+        <li><strong>기기 및 이용 정보</strong> — 푸시 알림용 기기 토큰, 알림 설정, 추천에 대한 반응·서비스 이용 기록</li>
+        <li><strong>위치 정보(선택)</strong> — 날씨 위젯 이용 시, 이용자가 권한에 동의한 경우에 한해 기기의 위치 정보를 일시적으로 사용합니다. 별도로 저장하지 않습니다.</li>
+      </ul>
+      <div class="callout">
+        <strong>결제 정보:</strong> 유료 구독·결제는 Apple App Store(인앱 결제)를 통해 처리되며, 회사는 카드번호 등 결제수단 정보를 직접 수집·보관하지 않습니다.
+      </div>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">02</span>개인정보의 수집 방법</h2>
+      <ul class="list">
+        <li>이용자가 앱 내에서 직접 입력하거나, 사진 첨부 및 권한 동의를 통해 제공하는 경우</li>
+        <li>Apple 로그인 등 인증 과정에서 제공받는 경우</li>
+        <li>서비스 이용 과정에서 자동으로 생성·수집되는 경우(이용 기록, 기기 토큰 등)</li>
+      </ul>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">03</span>개인정보의 이용 목적</h2>
+      <ul class="list">
+        <li>옷장 디지털화 — 의류 사진의 AI 분석 및 상품 이미지 생성</li>
+        <li>맞춤형 코디 추천 및 가상 시착(TryOn) 기능 제공</li>
+        <li>회원 식별·인증, 서비스 운영 및 고객 문의 대응</li>
+        <li>푸시 알림 발송(추천 알림, 처리 완료 안내 등)</li>
+        <li>서비스 품질 개선 및 신규 기능 개발</li>
+      </ul>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">04</span>개인정보의 처리위탁 및 국외 이전</h2>
+      <p>회사는 안정적인 서비스 제공을 위해 아래와 같이 개인정보 처리를 위탁하고 있으며, 일부 수탁사는 국외에 위치합니다. 위탁 계약 시 개인정보가 안전하게 관리되도록 필요한 사항을 규정하고 있습니다.</p>
+      <div class="table-wrap">
+        <table class="proc">
+          <thead>
+            <tr><th>수탁사</th><th>위탁 업무</th><th>이전 국가</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Google LLC</strong></td><td>의류·프로필 이미지 및 속성 정보의 AI 분석 및 이미지 생성(Gemini API)</td><td>미국 등</td></tr>
+            <tr><td><strong>Supabase Inc.</strong></td><td>데이터베이스·인증·스토리지 운영 및 개인정보 저장(데이터 리전: 대한민국 서울)</td><td>미국 / 대한민국</td></tr>
+            <tr><td><strong>Cloudflare, Inc.</strong></td><td>이미지 저장(R2) 및 웹/콘텐츠 전송</td><td>미국 등</td></tr>
+            <tr><td><strong>Apple Inc.</strong></td><td>로그인 인증, 푸시 알림 발송(APNs), 인앱 결제</td><td>미국 등</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>AI 처리 안내:</strong> 의류 사진 및 얼굴 사진은 이미지 분석·생성을 위해 Google의 AI 처리 인프라로 전송됩니다. 해당 데이터는 본 서비스 기능 제공 목적으로만 이용됩니다.
+      </div>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">05</span>개인정보의 보유 및 이용기간</h2>
+      <p>회사는 원칙적으로 개인정보 수집·이용 목적이 달성되면 해당 정보를 지체 없이 파기합니다. 회원 탈퇴 시 수집된 개인정보 및 콘텐츠는 지체 없이 삭제합니다.</p>
+      <p>다만 관계 법령에 따라 보존이 필요한 경우 해당 기간 동안 보관하며, 이 경우 보존 목적 외의 용도로 이용하지 않습니다.</p>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">06</span>개인정보의 파기 절차 및 방법</h2>
+      <ul class="list">
+        <li><strong>파기 절차</strong> — 보유기간이 경과하거나 처리 목적이 달성된 개인정보는 내부 방침에 따라 파기합니다.</li>
+        <li><strong>파기 방법</strong> — 전자적 파일 형태의 정보는 복구·재생이 불가능한 방법으로 영구 삭제합니다.</li>
+      </ul>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">07</span>이용자의 권리와 행사 방법</h2>
+      <p>이용자는 언제든지 자신의 개인정보에 대해 다음 권리를 행사할 수 있습니다.</p>
+      <ul class="list">
+        <li>개인정보 열람 및 정정 요청</li>
+        <li>개인정보 삭제 및 처리정지 요청</li>
+        <li>회원 탈퇴 및 계정·데이터 삭제 요청</li>
+      </ul>
+      <p>권리 행사는 앱 내 설정 또는 개인정보 보호책임자 이메일(<a class="inline" href="mailto:ghk@chicplay.net">ghk@chicplay.net</a>)을 통해 요청하실 수 있으며, 회사는 지체 없이 조치합니다.</p>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">08</span>만 14세 미만 아동의 개인정보</h2>
+      <p>회사는 만 14세 미만 아동의 개인정보를 수집하지 않는 것을 원칙으로 합니다. 만 14세 미만 아동의 가입이 확인될 경우, 회사는 해당 정보를 지체 없이 삭제합니다.</p>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">09</span>개인정보의 안전성 확보 조치</h2>
+      <ul class="list">
+        <li>전송 구간 암호화(HTTPS/TLS) 적용</li>
+        <li>접근 권한 관리 및 인증 기반 데이터 접근 통제</li>
+        <li>개인정보에 접근하는 위탁사에 대한 보안 요구사항 적용</li>
+      </ul>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">10</span>개인정보 보호책임자</h2>
+      <p>개인정보 처리에 관한 문의·불만 처리·피해 구제는 아래로 연락 주시기 바랍니다.</p>
+      <ul class="list">
+        <li><strong>개인정보 보호책임자</strong> — 김건형 (CEO)</li>
+        <li><strong>이메일</strong> — <a class="inline" href="mailto:ghk@chicplay.net">ghk@chicplay.net</a></li>
+        <li><strong>회사</strong> — CHICPLAY Inc. (서울, 대한민국)</li>
+      </ul>
+    </section>
+
+    <section class="article">
+      <h2 class="article-h"><span class="num">11</span>고지의 의무</h2>
+      <p>본 개인정보 처리방침은 법령·정책 또는 서비스 변경에 따라 내용이 추가·삭제·수정될 수 있으며, 변경 시 앱 또는 본 페이지를 통해 사전에 공지합니다.</p>
+    </section>
+  </main>
+
+  <div class="pfoot">
+    © 2026 CHICPLAY Inc. All rights reserved. · <a href="./index.html">홈으로 돌아가기</a>
+  </div>
+
+</body>
+</html>
