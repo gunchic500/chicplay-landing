@@ -2395,199 +2395,6 @@
       }
     }
 
-    /* ----------------------------------------
-       CBT 신청 모달
-    ---------------------------------------- */
-    @keyframes cbtFadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-    @keyframes cbtSlideUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .cbt-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: cbtFadeIn 0.3s var(--ease-out-quart);
-    }
-    .cbt-modal[hidden] {
-      display: none;
-    }
-
-    .cbt-modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(26, 26, 26, 0.72);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .cbt-modal-panel {
-      position: relative;
-      background: #FFFFFF;
-      border-radius: 24px;
-      max-width: 480px;
-      width: 90vw;
-      padding: 40px;
-      box-shadow: 0 32px 80px rgba(26, 26, 26, 0.4), 0 8px 24px rgba(26, 26, 26, 0.15);
-      animation: cbtSlideUp 0.3s var(--ease-out-quart);
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .cbt-modal-close {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      font-size: 28px;
-      line-height: 1;
-      color: var(--color-ink-soft);
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px 8px;
-      transition: color 0.15s;
-    }
-    .cbt-modal-close:hover { color: var(--color-ink); }
-
-    .cbt-modal-eyebrow {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 13px;
-      color: var(--color-amber);
-      margin-bottom: 12px;
-      letter-spacing: 0.01em;
-    }
-
-    .cbt-modal-title {
-      font-family: var(--font-serif);
-      font-size: 32px;
-      font-weight: 600;
-      line-height: 1.15;
-      color: var(--color-ink);
-      margin-bottom: 14px;
-    }
-
-    .cbt-modal-desc {
-      font-size: 15px;
-      line-height: 1.65;
-      color: var(--color-ink-soft);
-      margin-bottom: 24px;
-    }
-
-    .cbt-modal-steps {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-    .cbt-modal-steps li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--color-ink);
-    }
-    .cbt-step-num {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--color-amber);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .cbt-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .cbt-email-input {
-      height: 56px;
-      border: 1px solid var(--color-ink-soft);
-      border-radius: 12px;
-      padding: 0 18px;
-      font-family: var(--font-sans);
-      font-size: 16px;
-      color: var(--color-ink);
-      background: #fff;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .cbt-email-input::placeholder { color: #AAAAAA; }
-    .cbt-email-input:focus { border-color: var(--color-amber); }
-
-    .cbt-submit-btn {
-      height: 56px;
-      background: var(--color-amber);
-      color: var(--color-ink);
-      border: none;
-      border-radius: 999px;
-      font-family: var(--font-sans);
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .cbt-submit-btn:hover:not(:disabled) { background: var(--color-amber-dark); color: #fff; }
-    .cbt-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
-    .cbt-error {
-      font-size: 13px;
-      color: #D64040;
-      margin-top: 4px;
-    }
-    .cbt-error[hidden] { display: none; }
-
-    /* 성공 화면 */
-    .cbt-success-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: var(--color-amber);
-      color: #fff;
-      font-size: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-    }
-    #cbt-modal-success-state { text-align: center; }
-    #cbt-modal-success-state .cbt-modal-title { margin-bottom: 14px; }
-    #cbt-modal-success-state .cbt-modal-desc { margin-bottom: 28px; }
-
-    .cbt-success-close {
-      height: 52px;
-      padding: 0 40px;
-      border: 2px solid var(--color-ink);
-      border-radius: 999px;
-      background: transparent;
-      color: var(--color-ink);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-    }
-    .cbt-success-close:hover { background: var(--color-ink); color: #fff; }
-
-    @media (max-width: 480px) {
-      .cbt-modal-panel { padding: 28px 24px; }
-      .cbt-modal-title { font-size: 26px; }
-    }
   </style>
 </head>
 <body>
@@ -2604,7 +2411,7 @@
         <a href="#how">작동 방식</a>
         <a href="#vision">비전</a>
         <a href="#team">팀</a>
-        <a href="#" class="nav-cta" onclick="openCbtModal(); return false;">1차 CBT 신청</a>
+        <a href="https://apps.apple.com/app/id6763704615" target="_blank" rel="noopener noreferrer" class="nav-cta">다운로드</a>
       </div>
     </div>
   </nav>
@@ -2616,7 +2423,7 @@
         <div class="hero-content">
           <div class="hero-eyebrow">
             <span class="hero-eyebrow-dot"></span>
-            <span>TestFlight 베타 진행 중</span>
+            <span>App Store 정식 출시</span>
           </div>
 
           <h1 class="hero-title">
@@ -2631,8 +2438,8 @@
           </p>
 
           <div class="hero-cta-group">
-            <a href="#" onclick="openCbtModal(); return false;" class="btn btn-primary">
-              <span>1차 CBT로 먼저 시작하기</span>
+            <a href="https://apps.apple.com/app/id6763704615" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <span>App Store에서 다운받기</span>
               <span class="btn-arrow">→</span>
             </a>
             <a href="#how" class="btn btn-secondary">
@@ -2808,8 +2615,8 @@
 
         <div class="how-bottom" data-animate>
           <span class="how-bottom-text">설정에 5분, 매일 아침에 0초.</span>
-          <a href="#" onclick="openCbtModal(); return false;" class="how-bottom-cta">
-            <span>1차 CBT로 먼저 시작하기</span>
+          <a href="https://apps.apple.com/app/id6763704615" target="_blank" rel="noopener noreferrer" class="how-bottom-cta">
+            <span>지금 시작하기</span>
             <span>→</span>
           </a>
         </div>
@@ -3065,18 +2872,18 @@
           가장 먼저 경험해 보세요.
         </p>
 
-        <!-- Primary CTA · TestFlight -->
+        <!-- Primary CTA · App Store -->
         <div class="closing-primary" data-animate>
           <div class="closing-primary-icon">
             <img src="./assets/goo_icon.png" alt="Goo" />
           </div>
           <div class="closing-primary-text">
-            <p class="closing-primary-label">For Users · 베타 테스터</p>
-            <h3 class="closing-primary-title">1차 CBT로 먼저 시작하기</h3>
-            <p class="closing-primary-desc">정식 출시 전, Goo를 가장 먼저 경험하실 수 있습니다.</p>
+            <p class="closing-primary-label">For Users · 정식 출시</p>
+            <h3 class="closing-primary-title">지금 Goo를 시작하세요</h3>
+            <p class="closing-primary-desc">App Store에서 Goo를 다운로드하고 바로 시작하세요.</p>
           </div>
-          <a href="#" onclick="openCbtModal(); return false;" class="closing-primary-btn">
-            <span>참여하기</span>
+          <a href="https://apps.apple.com/app/id6763704615" target="_blank" rel="noopener noreferrer" class="closing-primary-btn">
+            <span>App Store에서 다운받기</span>
             <span>→</span>
           </a>
         </div>
@@ -3152,7 +2959,7 @@
               <li><a href="#how">작동 방식</a></li>
               <li><a href="#vision">비전</a></li>
               <li><a href="#team">팀</a></li>
-              <li><a href="#" onclick="openCbtModal(); return false;">1차 CBT 신청</a></li>
+              <li><a href="https://apps.apple.com/app/id6763704615" target="_blank" rel="noopener noreferrer">App Store</a></li>
             </ul>
           </div>
         </div>
@@ -3170,57 +2977,7 @@
     </div>
   </footer>
 
-  <!-- CBT 신청 모달 -->
-  <div id="cbt-modal" class="cbt-modal" role="dialog" aria-modal="true" aria-labelledby="cbt-modal-title" hidden>
-    <div class="cbt-modal-backdrop" onclick="closeCbtModal()"></div>
-    <div class="cbt-modal-panel">
-      <button class="cbt-modal-close" onclick="closeCbtModal()" aria-label="닫기">×</button>
-
-      <!-- State 1: 입력 폼 -->
-      <div id="cbt-modal-form-state">
-        <div class="cbt-modal-eyebrow">01 — 1차 CBT 안내</div>
-        <h2 id="cbt-modal-title" class="cbt-modal-title">Goo를 가장 먼저<br/>경험해보세요</h2>
-        <p class="cbt-modal-desc">
-          이메일을 남겨주시면 1차 CBT 참여자로<br/>
-          TestFlight 초대장을 보내드립니다.
-        </p>
-
-        <ol class="cbt-modal-steps">
-          <li><span class="cbt-step-num">1</span><span>이메일 신청 후 1영업일 내 승인</span></li>
-          <li><span class="cbt-step-num">2</span><span>TestFlight 앱 설치 안내 메일 수신</span></li>
-          <li><span class="cbt-step-num">3</span><span>iOS에서 Goo 베타 사용 시작</span></li>
-        </ol>
-
-        <form id="cbt-form" class="cbt-form" onsubmit="submitCbtForm(event)">
-          <input
-            type="email"
-            id="cbt-email"
-            class="cbt-email-input"
-            placeholder="your@email.com"
-            required
-            autocomplete="email"
-          />
-          <button type="submit" id="cbt-submit-btn" class="cbt-submit-btn">신청하기</button>
-        </form>
-
-        <p id="cbt-error" class="cbt-error" hidden></p>
-      </div>
-
-      <!-- State 2: 성공 -->
-      <div id="cbt-modal-success-state" hidden>
-        <div class="cbt-success-icon">✓</div>
-        <h2 class="cbt-modal-title">신청이 완료되었습니다</h2>
-        <p class="cbt-modal-desc">
-          1영업일 내 승인 안내 메일을<br/>
-          보내드릴 예정입니다.<br/><br/>
-          조금만 기다려주세요.
-        </p>
-        <button class="cbt-success-close" onclick="closeCbtModal()">확인</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scroll Reveal + CBT Modal Script -->
+  <!-- Scroll Reveal Script -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -3232,68 +2989,6 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
 
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-
-    const CBT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyVJWR5sCr7anMsjiV45c60xezjZPbzGthKkJeT6Lb-nXM2Trg4XrphIV_FfExtohBU4w/exec';
-
-    function openCbtModal() {
-      const modal = document.getElementById('cbt-modal');
-      modal.hidden = false;
-      document.body.style.overflow = 'hidden';
-      document.getElementById('cbt-modal-form-state').hidden = false;
-      document.getElementById('cbt-modal-success-state').hidden = true;
-      document.getElementById('cbt-error').hidden = true;
-      document.getElementById('cbt-email').value = '';
-      setTimeout(() => document.getElementById('cbt-email').focus(), 100);
-    }
-
-    function closeCbtModal() {
-      document.getElementById('cbt-modal').hidden = true;
-      document.body.style.overflow = '';
-    }
-
-    async function submitCbtForm(event) {
-      event.preventDefault();
-
-      const emailInput = document.getElementById('cbt-email');
-      const submitBtn = document.getElementById('cbt-submit-btn');
-      const errorEl = document.getElementById('cbt-error');
-      const email = emailInput.value.trim();
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        errorEl.textContent = '올바른 이메일 형식을 입력해주세요.';
-        errorEl.hidden = false;
-        return;
-      }
-
-      errorEl.hidden = true;
-      submitBtn.disabled = true;
-      submitBtn.textContent = '신청 중...';
-
-      try {
-        await fetch(CBT_ENDPOINT, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({ email: email, source: 'chicplay.net' })
-        });
-
-        document.getElementById('cbt-modal-form-state').hidden = true;
-        document.getElementById('cbt-modal-success-state').hidden = false;
-      } catch (err) {
-        errorEl.textContent = '신청 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
-        errorEl.hidden = false;
-        submitBtn.disabled = false;
-        submitBtn.textContent = '신청하기';
-      }
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        const modal = document.getElementById('cbt-modal');
-        if (!modal.hidden) closeCbtModal();
-      }
-    });
   </script>
 
 </body>
