@@ -260,6 +260,61 @@
     }
 
     /* ----------------------------------------
+       Language Switch & Divider
+    ---------------------------------------- */
+    .lang-switch-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1.5px solid var(--color-white);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-white);
+      background: rgba(255, 255, 255, 0.08);
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .lang-switch:hover {
+      background: var(--color-white);
+      color: var(--color-amber);
+      transform: translateY(-1px);
+    }
+    .lang-divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 120px 0 40px;
+      scroll-margin-top: 120px;
+    }
+    .lang-divider::before,
+    .lang-divider::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+    .lang-divider-label {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-white);
+    }
+    #ko { scroll-margin-top: 120px; }
+    /* English body — system sans-serif reads more naturally than Pretendard;
+       headings keep Fraunces via their own font-family rule. */
+    .legal-body--en {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* ----------------------------------------
        Footer
     ---------------------------------------- */
     .footer {
@@ -399,7 +454,10 @@
 
   <!-- Content -->
   <main class="legal-page">
-    <div class="legal-wrap">
+    <div class="legal-wrap" id="ko">
+      <div class="lang-switch-row">
+        <a href="#en" class="lang-switch">English ↓</a>
+      </div>
       <h1 class="legal-page-title">개인정보처리방침</h1>
       <p class="legal-intro">주식회사 시크플레이(이하 "회사")는 Goo(이하 "서비스")를 운영하며, 이용자의 개인정보를 중요하게 생각하고 「개인정보 보호법」 등 관련 법령을 준수합니다. 본 방침은 회사가 어떤 개인정보를 수집·이용하며, 이를 보호하기 위해 어떤 조치를 취하는지 안내합니다.</p>
 
@@ -638,6 +696,255 @@
         <p class="legal-footer-note">
           시행일: 2026년 07월 01일<br />
           공고일: 2026년 07월 01일
+        </p>
+
+      </div>
+
+      <div class="lang-divider" id="en">
+        <span class="lang-divider-label">English</span>
+      </div>
+
+      <div class="lang-switch-row">
+        <a href="#ko" class="lang-switch">한국어 ↑</a>
+      </div>
+      <h1 class="legal-page-title">Privacy Policy</h1>
+      <p class="legal-intro">CHICPLAY Inc. ("Company," "we," "us," or "our") operates Goo (the "Service"). We take the protection of your personal information seriously and comply with the Personal Information Protection Act of the Republic of Korea and other applicable laws. This Privacy Policy explains what personal information we collect and use, and the measures we take to protect it.</p>
+
+      <div class="legal-body legal-body--en">
+
+        <h2>1. Personal Information We Collect</h2>
+        <p>We collect the following personal information to provide the Service.</p>
+
+        <div class="table-wrap">
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Items Collected</th>
+                <th>Collection Method</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Account</td>
+                <td>Email address, name, Apple account identifier</td>
+                <td>Provided at Sign in with Apple (email and name collected once at initial sign-in)</td>
+              </tr>
+              <tr>
+                <td>Profile</td>
+                <td>Nickname, gender, year of birth, height, weight, face photo (main/sub profile)</td>
+                <td>Entered during onboarding and profile setup, or uploaded by the user</td>
+              </tr>
+              <tr>
+                <td>Content</td>
+                <td>Clothing photos and attributes (color, material, pattern, fit, brand, etc.), AI-generated images, outfit records, preferred style images</td>
+                <td>Generated when registering clothing, using Try-On, or using Style Diagnosis</td>
+              </tr>
+              <tr>
+                <td>Usage Records</td>
+                <td>Recommendation, click, and save history; Cap usage history; notice viewing records</td>
+                <td>Automatically generated during use of the Service</td>
+              </tr>
+              <tr>
+                <td>Device</td>
+                <td>Push notification token (device token), notification settings, time zone</td>
+                <td>Collected when notification permission is granted</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>The information above is collected either through your direct input or uploads, or automatically generated in the course of your use of the Service.</p>
+
+        <h2>2. Purposes of Use</h2>
+        <ul>
+          <li>Member identification, sign-in, and account management</li>
+          <li>AI-based style recommendations and personalization</li>
+          <li>Try-On (virtual fitting) image generation</li>
+          <li>Style Diagnosis (taste, mood, and color analysis)</li>
+          <li>Push notification delivery</li>
+          <li>Service analytics and quality improvement</li>
+          <li>Prevention of fraudulent use and response to inquiries</li>
+          <li>Building fashion industry data infrastructure and providing statistical information to industry partners using anonymized and aggregated data (excluding personal information)</li>
+          <li>Providing analytical materials to industry partners using Try-On result images of users who have given consent</li>
+        </ul>
+
+        <h2>3. Outsourcing of Processing and Cross-Border Transfer</h2>
+        <p>To provide the Service smoothly, we outsource the processing of personal information as set out below, and some information is transferred outside the Republic of Korea. You may review these arrangements through this Policy, and we obtain separate consent through the in-app consent process.</p>
+
+        <div class="table-wrap">
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Processor / Recipient</th>
+                <th>Items Transferred</th>
+                <th>Purpose</th>
+                <th>Country</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Google (Gemini API)</td>
+                <td>Clothing photos, face photos, preferred style images, body information (height, weight, gender), clothing attributes</td>
+                <td>AI clothing analysis, Try-On image generation, style diagnosis and recommendation</td>
+                <td>United States</td>
+              </tr>
+              <tr>
+                <td>Supabase</td>
+                <td>All personal information collected (authentication and database hosting)</td>
+                <td>Data storage and processing</td>
+                <td>Republic of Korea (ap-northeast-2, Seoul)</td>
+              </tr>
+              <tr>
+                <td>Cloudflare (R2)</td>
+                <td>Original and generated clothing images, Try-On images</td>
+                <td>Image storage</td>
+                <td>Global</td>
+              </tr>
+              <tr>
+                <td>Apple (APNs)</td>
+                <td>Push notification token</td>
+                <td>Push notification delivery</td>
+                <td>United States</td>
+              </tr>
+              <tr>
+                <td>Apple (Sign in with Apple)</td>
+                <td>Apple authentication token</td>
+                <td>Sign-in and token revocation upon account deletion</td>
+                <td>United States</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Timing and method of transfer: Information is transmitted over the network at the time you use the Service. You may decline consent to cross-border transfer; however, in that case, core features such as AI analysis and Try-On may be unavailable.</p>
+
+        <h3>Notice Regarding AI Services</h3>
+        <p>The Try-On, clothing analysis, and style diagnosis features transmit clothing and face photos you upload to Google's Gemini API for processing. We do not provide these photos to train AI models; they are used solely for inference purposes to generate recommendations and images. You may use these features after giving consent through the in-app consent process.</p>
+
+        <h2>4. Provision of Information to Industry Partners</h2>
+        <p>We provide data accumulated through the Service to industry partners and fashion brands so that it may be used for product development and trend research in the fashion industry. The information provided is classified as set out below, and where information that can identify an individual is included, we obtain separate consent.</p>
+
+        <h3>4-1. Anonymized Statistical Information (No Consent Required)</h3>
+        <p>The following information, anonymized and aggregated so that individual users cannot be identified, does not constitute personal information and may therefore be provided without separate consent.</p>
+        <ul>
+          <li>Registration and Try-On statistics by category and brand</li>
+          <li>Style preference and trend analysis by age group and gender</li>
+          <li>Try-On results and satisfaction statistics by body size range (excluding individual body measurements)</li>
+          <li>Product combination and styling pattern analysis</li>
+          <li>Clothing images and attribute information (color, material, pattern, fit, etc., with user-identifying information removed)</li>
+        </ul>
+        <p>Before providing such information, we remove or irreversibly process all information that could identify an individual user (name, email address, Apple account identifier, etc.).</p>
+
+        <h3>4-2. Try-On Result Images (Optional Consent)</h3>
+        <p>Try-On result images generated through the Service may constitute personal information because they include the user's body. Accordingly, we provide such images only for users who have been given the following notice and have consented.</p>
+
+        <div class="table-wrap">
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recipients</td>
+                <td>Fashion manufacturing and distribution companies and brands (individually disclosed at the time of actual provision)</td>
+              </tr>
+              <tr>
+                <td>Purpose</td>
+                <td>Product development, sizing improvement, wear-pattern analysis, trend research</td>
+              </tr>
+              <tr>
+                <td>Items Provided</td>
+                <td>Try-On result images (with face masking applied), attributes of worn clothing, size range</td>
+              </tr>
+              <tr>
+                <td>Retention and Use Period</td>
+                <td>Until the purpose of provision is achieved, or within three years from the date of provision</td>
+              </tr>
+              <tr>
+                <td>Right to Decline</td>
+                <td>You may decline consent. Declining does not restrict your access to any features of the Service.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Before providing such images, we apply face masking or blurring to minimize the possibility of identifying a specific individual. However, this is an additional protective measure only; we treat such images as personal information and apply the consent process described above.</p>
+
+        <h3>Purposes of Use</h3>
+        <ul>
+          <li>Product development and sizing improvement for fashion brands</li>
+          <li>Fashion trend and consumption pattern research</li>
+          <li>Industry collaboration and market research</li>
+          <li>Service improvement and development of new features</li>
+        </ul>
+
+        <h3>Withdrawal of Consent and Opt-Out</h3>
+        <p>You may withdraw your consent under Section 4-2 at any time via "My Page > Data Sharing Settings" in the app, and provision will cease thereafter. You may also request exclusion from the anonymized statistical information described in Section 4-1 by contacting us at the address below.</p>
+
+        <h2>5. Retention Period and Destruction</h2>
+        <p>As a general rule, we retain your personal information until you withdraw your membership, and we destroy it without delay upon withdrawal.</p>
+
+        <h3>Destruction Upon Account Deletion (Membership Withdrawal)</h3>
+        <p>You may request account deletion directly through "My Page > Delete Account" in the app. Upon account deletion, the following information is permanently destroyed immediately:</p>
+        <ul>
+          <li>All personal information stored in our database (profile, content, usage records, etc.)</li>
+          <li>All stored images (clothing, Try-On results, face photos, etc.)</li>
+          <li>Authentication information and Apple sign-in tokens (revoked)</li>
+        </ul>
+        <p>Account deletion is processed immediately and cannot be reversed.</p>
+
+        <h3>Information Retained After Withdrawal (Exception)</h3>
+        <p>To prevent fraudulent sign-ups and duplicate receipt of benefits, we retain only a one-way encrypted (hashed) value of the member identifier after withdrawal. This value cannot be used to identify a specific individual and is used solely to prevent fraudulent use.</p>
+        <p>We may also retain information for the period required where retention is mandated by applicable law.</p>
+
+        <h2>6. Your Rights and How to Exercise Them</h2>
+        <p>You may exercise the following rights at any time:</p>
+        <ul>
+          <li>Access and correction: Review and edit directly on the profile screen in the app</li>
+          <li>Deletion and withdrawal of membership: Use the "Delete Account" feature in the app</li>
+          <li>Withdrawal of consent: Available by changing permission settings or deleting your account</li>
+          <li>Withdrawal of consent to industry partner provision: Withdraw at any time via "My Page > Data Sharing Settings" in the app</li>
+        </ul>
+        <p>You may also submit requests through the contact information below, and we will take action without delay.</p>
+
+        <h2>7. Device Permissions</h2>
+        <p>The Service uses the following device permissions. You may use the Service, excluding the relevant features, without granting these permissions.</p>
+        <ul>
+          <li>Photos: Uploading and saving clothing and profile photos</li>
+          <li>Notifications: Receiving push notifications such as style recommendations</li>
+          <li>Location: Weather-based recommendations (optional)</li>
+        </ul>
+
+        <h2>8. Children Under the Age of 14</h2>
+        <p>The Service is intended for users aged 14 and over. We do not collect personal information from children under the age of 14, and if we confirm that a user is under 14, we will destroy the relevant information without delay.</p>
+
+        <h2>9. Security Measures</h2>
+        <ul>
+          <li>Encryption in transit and access control</li>
+          <li>Restricted access to sensitive information such as authentication tokens</li>
+          <li>Management of access logs for personal information processing systems</li>
+        </ul>
+
+        <h2>10. Privacy Officer and Contact</h2>
+        <p>For inquiries, complaints, or to exercise your rights regarding the processing of personal information, please contact:</p>
+        <ul>
+          <li>Privacy Officer: Gunhyung Kim / CEO</li>
+          <li>Email: ghk@chicplay.net</li>
+          <li>Company: CHICPLAY Inc.</li>
+        </ul>
+
+        <h2>11. Changes to This Policy</h2>
+        <p>This Policy may be amended in accordance with changes in law or the Service. We will provide advance notice of any changes through in-app notices or on this page.</p>
+
+        <hr />
+
+        <p class="legal-footer-note">
+          Effective Date: July 1, 2026<br />
+          Published: July 1, 2026
         </p>
 
       </div>
