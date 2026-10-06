@@ -492,6 +492,11 @@
                 <td>의류 등록, 입어보기, 스타일 진단 이용 시</td>
               </tr>
               <tr>
+                <td>메시지</td>
+                <td>대화 내용(텍스트), 발신·수신 시각, 읽음 여부, 대화 상대 정보</td>
+                <td>이용자 간 메시지(DM) 전송 시</td>
+              </tr>
+              <tr>
                 <td>이용 기록</td>
                 <td>추천·클릭·저장 기록, Cap 사용 내역, 공지 열람 기록</td>
                 <td>서비스 이용 과정에서 자동 생성</td>
@@ -513,6 +518,8 @@
           <li>AI 기반 스타일 추천 및 개인화</li>
           <li>입어보기(가상 착장) 화보 생성</li>
           <li>스타일 진단(취향·무드·컬러 분석) 제공</li>
+          <li>이용자 간 메시지(DM) 전송 및 보관</li>
+          <li>신고된 콘텐츠·메시지의 검토 및 조치</li>
           <li>푸시 알림 발송</li>
           <li>서비스 통계 및 품질 개선</li>
           <li>부정 이용 방지 및 문의 응대</li>
@@ -554,7 +561,7 @@
               </tr>
               <tr>
                 <td>Apple (APNs)</td>
-                <td>푸시 알림 토큰</td>
+                <td>푸시 알림 토큰, 알림 표시 내용</td>
                 <td>푸시 알림 발송</td>
                 <td>미국</td>
               </tr>
@@ -573,8 +580,12 @@
         <h3>AI 서비스 이용에 관한 고지</h3>
         <p>입어보기, 의류 분석, 스타일 진단 기능은 이용자가 업로드한 의류·얼굴 사진 등을 Google의 Gemini API로 전송하여 처리합니다. 회사는 해당 사진을 AI 모델의 학습 목적으로 제공하지 않으며, 추천·생성을 위한 처리(추론) 목적으로만 이용합니다. 이용자는 서비스 내 동의 절차를 통해 위 처리에 동의한 후 기능을 이용할 수 있습니다.</p>
 
+        <h3>메시지에 관한 고지</h3>
+        <p>이용자 간 메시지는 AI 분석에 이용되지 않으며, 외부 AI 서비스로 전송되지 않습니다. 메시지 내용은 대한민국 내 서버(Supabase, 서울)에 저장됩니다. 푸시 알림에는 메시지 내용이 포함되지 않으며, 발신자 닉네임과 알림 문구만 전송됩니다.</p>
+
         <h2>4. 산업 파트너에 대한 정보 제공</h2>
         <p>회사는 축적된 데이터를 패션 산업의 상품 개발과 트렌드 연구에 활용될 수 있도록 산업 파트너 및 패션 브랜드에 제공합니다. 제공 정보는 성격에 따라 아래와 같이 구분되며, 개인을 식별할 수 있는 정보가 포함되는 경우 별도 동의를 받습니다.</p>
+        <p><strong>이용자 간 메시지 내용은 어떠한 경우에도 산업 파트너에게 제공되지 않습니다.</strong></p>
 
         <h3>4-1. 익명 통계 정보 (동의 불요)</h3>
         <p>개별 이용자를 식별할 수 없도록 익명화·통계화한 다음 정보는 개인정보에 해당하지 않으므로 별도 동의 없이 제공될 수 있습니다.</p>
@@ -648,6 +659,9 @@
         </ul>
         <p>계정 삭제는 즉시 처리되며 복구할 수 없습니다.</p>
 
+        <h3>메시지에 관한 예외</h3>
+        <p>이용자가 보낸 메시지는 상대방의 대화 기록에도 함께 존재합니다. 따라서 계정 삭제 시 발신자 정보(닉네임·프로필 이미지)는 익명 처리되나, <strong>메시지 내용은 상대방의 대화창에 남습니다.</strong> 이는 상대방의 대화 기록을 보호하고, 신고된 메시지에 대한 조치 근거를 유지하기 위한 것입니다.</p>
+
         <h3>탈퇴 후 예외적 보관 정보</h3>
         <p>부정 가입 및 혜택 중복 수령 방지를 위해, 회원 식별자를 복원이 불가능한 단방향 암호화(해시) 처리한 값만을 탈퇴 후에도 보관합니다. 이 값은 특정 개인을 식별할 수 없는 형태이며, 부정 이용 방지 목적으로만 이용됩니다.</p>
         <p>또한 관련 법령에서 보존을 요구하는 경우 해당 기간 동안 보관할 수 있습니다.</p>
@@ -659,6 +673,7 @@
           <li>개인정보 삭제 및 회원 탈퇴: 앱 내 "계정 삭제" 기능 이용</li>
           <li>동의 철회: 권한 설정 변경 또는 계정 삭제를 통해 가능</li>
           <li>산업 파트너 제공 동의 철회: 앱 내 "마이페이지 > 데이터 제공 설정"에서 언제든 철회 가능</li>
+          <li>메시지 신고 및 상대방 차단: 앱 내 대화 화면에서 직접 이용</li>
         </ul>
         <p>권리 행사는 아래 문의처를 통해서도 요청할 수 있으며, 회사는 지체 없이 조치합니다.</p>
 
@@ -666,18 +681,28 @@
         <p>서비스는 다음의 기기 접근 권한을 사용하며, 권한을 허용하지 않아도 해당 기능을 제외한 서비스 이용이 가능합니다.</p>
         <ul>
           <li>사진: 의류·프로필 사진 업로드 및 저장</li>
-          <li>알림: 스타일 추천 등 푸시 알림 수신</li>
+          <li>알림: 스타일 추천, 메시지 수신 등 푸시 알림 수신</li>
           <li>위치: 날씨 기반 추천(선택)</li>
         </ul>
 
-        <h2>8. 만 14세 미만 아동의 개인정보</h2>
+        <h2>8. 미성년자의 개인정보 및 보호 조치</h2>
         <p>서비스는 만 14세 이상 이용자를 대상으로 합니다. 회사는 만 14세 미만 아동의 개인정보를 수집하지 않으며, 만 14세 미만임이 확인될 경우 해당 정보를 지체 없이 파기합니다.</p>
+
+        <h3>메시지 기능에 대한 추가 보호</h3>
+        <p>회사는 이용자 간 메시지 기능에 대해 미성년 이용자 보호를 위한 추가 조치를 적용합니다.</p>
+        <ul>
+          <li><strong>만 18세 미만 이용자에게는 성인 이용자가 먼저 메시지를 보낼 수 없습니다.</strong> 성인 이용자가 보낸 최초 메시지는 대화 요청으로 전달되며, 미성년 이용자가 수락한 경우에만 대화가 시작됩니다.</li>
+          <li>미성년 이용자가 대화 요청을 거절하면 해당 이용자는 자동으로 차단되어 다시 메시지를 보낼 수 없습니다.</li>
+          <li>미성년 이용자가 먼저 대화를 시작한 경우에는 위 제한이 적용되지 않습니다.</li>
+          <li>연령은 이용자가 입력한 출생연도를 기준으로 판단합니다.</li>
+        </ul>
 
         <h2>9. 개인정보의 안전성 확보 조치</h2>
         <ul>
           <li>전송 구간 암호화 및 접근 권한 통제</li>
           <li>민감 정보(인증 토큰 등)에 대한 접근 제한</li>
           <li>개인정보 처리 시스템에 대한 접근 기록 관리</li>
+          <li>메시지는 이용자 중 대화 당사자만 조회할 수 있도록 서버에서 접근을 통제합니다. 운영자는 신고가 접수된 경우 해당 메시지를 검토하며, 그 외에는 원칙적으로 메시지를 열람하지 않습니다</li>
         </ul>
 
         <h2>10. 개인정보 보호책임자 및 문의처</h2>
@@ -694,8 +719,9 @@
         <hr />
 
         <p class="legal-footer-note">
-          시행일: 2026년 07월 01일<br />
-          공고일: 2026년 07월 01일
+          시행일: 2026년 10월 06일<br />
+          공고일: 2026년 10월 06일<br />
+          이전 버전 시행일: 2026년 07월 01일
         </p>
 
       </div>
@@ -741,6 +767,11 @@
                 <td>Generated when registering clothing, using Try-On, or using Style Diagnosis</td>
               </tr>
               <tr>
+                <td>Messages</td>
+                <td>Message content (text), timestamps of sending and receipt, read status, information about the other party</td>
+                <td>Collected when you send direct messages to other users</td>
+              </tr>
+              <tr>
                 <td>Usage Records</td>
                 <td>Recommendation, click, and save history; Cap usage history; notice viewing records</td>
                 <td>Automatically generated during use of the Service</td>
@@ -762,6 +793,8 @@
           <li>AI-based style recommendations and personalization</li>
           <li>Try-On (virtual fitting) image generation</li>
           <li>Style Diagnosis (taste, mood, and color analysis)</li>
+          <li>Delivery and storage of direct messages between users</li>
+          <li>Review of and action on reported content and messages</li>
           <li>Push notification delivery</li>
           <li>Service analytics and quality improvement</li>
           <li>Prevention of fraudulent use and response to inquiries</li>
@@ -803,7 +836,7 @@
               </tr>
               <tr>
                 <td>Apple (APNs)</td>
-                <td>Push notification token</td>
+                <td>Push notification token, notification display text</td>
                 <td>Push notification delivery</td>
                 <td>United States</td>
               </tr>
@@ -822,8 +855,12 @@
         <h3>Notice Regarding AI Services</h3>
         <p>The Try-On, clothing analysis, and style diagnosis features transmit clothing and face photos you upload to Google's Gemini API for processing. We do not provide these photos to train AI models; they are used solely for inference purposes to generate recommendations and images. You may use these features after giving consent through the in-app consent process.</p>
 
+        <h3>Notice Regarding Messages</h3>
+        <p>Direct messages between users are not used for AI analysis and are not transmitted to any external AI service. Message content is stored on servers located in the Republic of Korea (Supabase, Seoul). Push notifications do not include message content; only the sender's nickname and a notification phrase are transmitted.</p>
+
         <h2>4. Provision of Information to Industry Partners</h2>
         <p>We provide data accumulated through the Service to industry partners and fashion brands so that it may be used for product development and trend research in the fashion industry. The information provided is classified as set out below, and where information that can identify an individual is included, we obtain separate consent.</p>
+        <p><strong>Direct messages between users are never provided to industry partners under any circumstances.</strong></p>
 
         <h3>4-1. Anonymized Statistical Information (No Consent Required)</h3>
         <p>The following information, anonymized and aggregated so that individual users cannot be identified, does not constitute personal information and may therefore be provided without separate consent.</p>
@@ -897,6 +934,9 @@
         </ul>
         <p>Account deletion is processed immediately and cannot be reversed.</p>
 
+        <h3>Exception for Messages</h3>
+        <p>Messages you have sent also exist in the other party's conversation history. Accordingly, upon account deletion, your sender information (nickname and profile image) is anonymized, but <strong>the message content remains in the other party's conversation.</strong> This is to protect the other party's conversation records and to preserve the basis for action on reported messages.</p>
+
         <h3>Information Retained After Withdrawal (Exception)</h3>
         <p>To prevent fraudulent sign-ups and duplicate receipt of benefits, we retain only a one-way encrypted (hashed) value of the member identifier after withdrawal. This value cannot be used to identify a specific individual and is used solely to prevent fraudulent use.</p>
         <p>We may also retain information for the period required where retention is mandated by applicable law.</p>
@@ -908,6 +948,7 @@
           <li>Deletion and withdrawal of membership: Use the "Delete Account" feature in the app</li>
           <li>Withdrawal of consent: Available by changing permission settings or deleting your account</li>
           <li>Withdrawal of consent to industry partner provision: Withdraw at any time via "My Page > Data Sharing Settings" in the app</li>
+          <li>Reporting messages and blocking other users: Available directly on the conversation screen in the app</li>
         </ul>
         <p>You may also submit requests through the contact information below, and we will take action without delay.</p>
 
@@ -915,18 +956,28 @@
         <p>The Service uses the following device permissions. You may use the Service, excluding the relevant features, without granting these permissions.</p>
         <ul>
           <li>Photos: Uploading and saving clothing and profile photos</li>
-          <li>Notifications: Receiving push notifications such as style recommendations</li>
+          <li>Notifications: Receiving push notifications such as style recommendations and incoming messages</li>
           <li>Location: Weather-based recommendations (optional)</li>
         </ul>
 
-        <h2>8. Children Under the Age of 14</h2>
+        <h2>8. Minors and Protective Measures</h2>
         <p>The Service is intended for users aged 14 and over. We do not collect personal information from children under the age of 14, and if we confirm that a user is under 14, we will destroy the relevant information without delay.</p>
+
+        <h3>Additional Protections for the Messaging Feature</h3>
+        <p>We apply additional measures to protect minor users in connection with the direct messaging feature.</p>
+        <ul>
+          <li><strong>Adult users cannot initiate messages to users under the age of 18.</strong> The first message sent by an adult user is delivered as a conversation request, and the conversation begins only if the minor user accepts it.</li>
+          <li>If a minor user declines a conversation request, the requesting user is automatically blocked and cannot send further messages.</li>
+          <li>These restrictions do not apply where the minor user initiates the conversation.</li>
+          <li>Age is determined based on the year of birth entered by the user.</li>
+        </ul>
 
         <h2>9. Security Measures</h2>
         <ul>
           <li>Encryption in transit and access control</li>
           <li>Restricted access to sensitive information such as authentication tokens</li>
           <li>Management of access logs for personal information processing systems</li>
+          <li>Messages are access-controlled at the server level so that, among users, only the parties to a conversation can view them. Operators review a message when it has been reported and, as a matter of principle, do not otherwise access messages</li>
         </ul>
 
         <h2>10. Privacy Officer and Contact</h2>
@@ -943,8 +994,9 @@
         <hr />
 
         <p class="legal-footer-note">
-          Effective Date: July 1, 2026<br />
-          Published: July 1, 2026
+          Effective Date: October 6, 2026<br />
+          Published: October 6, 2026<br />
+          Previous version effective date: July 1, 2026
         </p>
 
       </div>
