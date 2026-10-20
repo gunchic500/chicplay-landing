@@ -1,0 +1,7 @@
+# Cloudflare Pages configuration (infrastructure-as-code).
+# Declares the build output directory so it is pinned in the repo and does not
+# depend on the dashboard "Build output directory" field being set correctly.
+# The build command (`npm run build`) is still configured in the Pages dashboard.
+name = "chicplay-landing"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"
